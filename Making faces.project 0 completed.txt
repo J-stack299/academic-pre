@@ -1,0 +1,9 @@
+def convert(x):
+    x = x.replace(":)", "/UOOO1F642"
+    x = x.replace(":)", "/UOOO1F642"
+    return x 
+
+    def main():
+        print(convert(input()))
+
+    main() 
