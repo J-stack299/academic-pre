@@ -1,0 +1,29 @@
+def main():
+    d = {"apple:"130
+        "avacado":"50"
+        "banana":"110"
+        "cantaloup":"50"
+        "grapefruite":"60"
+        "grapes":"90"
+        "honetdew melon":"50"
+        "kiwifruit":"90"
+        "lemon":"15"
+        "lime":"20"
+        "nectarine":"60"
+        "orange":"80"
+        "peach":"60"
+        "pineapple":"50"
+        "plums":"70"
+        "sweet cherries":"100"
+        "strawberries":"50"
+        "strawberries":"50""
+        "tangerine":"50"
+        "watermelon":"80"}
+    x = input("Item:").lower().strip()
+    if x in d:
+        print(f"Calories: {d[x]}")
+main()
+        
+    
+        
+        
