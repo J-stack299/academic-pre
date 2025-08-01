@@ -1,1 +1,1 @@
-# academic-pre
+The first few weeks was very challenging since I had no idea on how to use Github and since I have no prior experience .Had I prepared myself directly after bootcamp I would have had the "know-how" .However, the videos and slides which were provided with the Project instructions have enhanced my ability to tackle my first steps of my coding. 
