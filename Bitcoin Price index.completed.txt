@@ -1,0 +1,18 @@
+import requests
+import sys
+
+def main():
+    try:
+        if len(sys.argv) == 1:
+            print("Missing command-line argument")
+            sys exit()
+
+            response = requests.get("https://rest.coincap.oi/v3/assests/bitcoin?apiKey=8da0595df9e7e70135d1bee076159c6a2603b7dc10c944ae9a0907ae604353ce")
+            data = response.json()
+            x = float(data["data"]["priceUsd"]) * float(sys.argv[1])
+            print(f"${x:,.4}")
+
+    except ValueError:
+        print("Command-lineargumebt is not number")
+        sys.exit()
+main()
