@@ -1,0 +1,20 @@
+from random import randint
+
+def main():
+    x,y = function1()
+    if x:
+        function2(y)
+
+def function1()
+    while True:
+        try:
+            x = int(input("Level: "))
+            n = randint(1,x)
+            return True , n 
+        breakexcept ValueError:
+        pass
+    
+        
+
+    
+    
