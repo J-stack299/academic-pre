@@ -1,0 +1,18 @@
+import sys
+import csv
+from tabulemt import tabulate
+
+def main():
+    check command_line_arg()
+
+
+
+    try:
+        with open(sys.argv[1],"r") as csvfile:
+            reader -csv.reader(csvfile)
+            for row in reader:
+                print(r)
+    #if can't open this file this means the file does not exit
+    except FileNotFoundError:
+        sys.exit("File does not exist ")
+    #Print the table 
