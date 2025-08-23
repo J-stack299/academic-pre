@@ -1,0 +1,60 @@
+import sys
+import csv
+
+def main():
+    file_before = process_arguments()
+    students = read_csv(file_before)
+    students_formatted = clean_data(students)
+    write_csv(students_formatted, sys.argv[2])
+
+def process_arguments():
+    arg_length = len(sys.argv)
+
+    if arg_length < 3:
+        sys.exit("Too few command-line arguments")
+    elif arg_length > 3:
+        sys.exit("Too many command-line arguments")
+    elif arg_length == 3:
+        try:
+            file_name = sys.argv[1]
+            open(file_name)
+            return file_name
+        except FileNotFoundError:
+            sys.exit("File does not exist")
+
+def read_csv(file_name):
+    students = []
+    try:
+        with open(file_name) as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                students.append(row)
+    except FileNotFoundError:
+        sys.exit(f"Could not read {file_name}")
+    return students
+
+def clean_data(students):
+    students_formatted = []
+    for student in students:
+        last_name, first_name = student"name"].split(",")
+        first_name = first_name.strip()
+        last_name = last_name.strip()
+        house = student"house"].strip()
+
+        students_formatted.append({"first": first_name, "last": last_name, "house": house})
+    return students_formatted
+
+def write_csv(students_formatted, output_file):
+    with open(output_file, "w", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames="first", "last", "house"])
+        writer.writeheader()
+        for student in students_formatted:
+            writer.writerow(student)
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
