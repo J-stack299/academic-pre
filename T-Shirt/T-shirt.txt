@@ -1,0 +1,67 @@
+import PIL
+from PIL import Image, ImageOps
+import sys, os
+
+
+
+def main():
+
+
+
+        if len(sys.argv) > 3: #length should not exceed 2 arguments in command-line (file name of this file and new file to be made)
+
+            sys.exit("Too many command-line arguments")
+
+        elif len(sys.argv) < 3: #length should not be less than 2 arguments in command-line (file name of this file and new file to be made)
+
+            sys.exit("Too few command-line arguments")
+
+        else:
+
+            photo = sys.argv[1] #set 1st argument to this variable
+            result = sys.argv[2] #set 2nd argument to this variable
+
+
+            photoname, photoext = os.path.splitext(photo)
+            resultname, resultext = os.path.splitext(result)
+            photoext = photoext.lower()
+            resultext = resultext.lower()
+
+
+            if photoext == ".jpeg":
+                 photoext = ".jpg"
+
+            if resultext == ".jpeg":
+                 resultext = ".jpg"
+
+
+
+            if (photoext == ".jpg" and resultext == ".png") or (photoext == ".png" and resultext == ".jpg"):
+                    sys.exit("Input and output have different extensions")
+
+
+            elif resultext != ".png" and resultext != ".jpg":
+                  sys.exit("Invalid output")
+
+
+            if os.path.exists(photo):
+
+                  shirt = Image.open("shirt.png")
+                  size = shirt.size
+                  shirt = shirt.convert("RGBA")
+
+                  photo_to_use = Image.open(photo)                 
+                  photo_to_use = ImageOps.fit(photo_to_use, size = (size), method = 0, bleed = 0.0, centering =(0.5, 0.5))
+
+                  photo_to_use.paste(shirt, shirt)
+
+                  photo_to_use.save(result)
+
+
+                  #if the specified input does not exist.
+
+            else:
+                  sys.exit("Input does not exist")
+
+
+main()
