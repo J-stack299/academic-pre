@@ -1,0 +1,11 @@
+from validator_collection import validators
+
+def main():
+    email_address = input("What's yor email address? ")
+    try:
+        emailIsValid = validators.email(email_address)
+        print("Valid")
+    except:
+        print("Invalid")
+
+if__name__ == "__main__": # type: ignore
